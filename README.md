@@ -1,3 +1,2 @@
 # LeetCode
-My solutions for LeetCode problems.
-File names are just the problem number for the corresponding LeetCode problem.
+My solutions for LeetCode problems. File names are just the problem numbers for the corresponding LeetCode problems.
