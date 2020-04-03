@@ -1,5 +1,8 @@
 class Solution:
     def findPairs(self, nums: List[int], k: int) -> int:
+        if k < 0:
+            return 0
+        
         if k == 0:
             doubles = set()
             counted = set()
