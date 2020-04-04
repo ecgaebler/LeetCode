@@ -1,8 +1,5 @@
 class Solution:
     def largestNumber(self, nums: List[int]) -> str:
-        #sorted_nums = sorted((str(num) for num in nums), reverse=True)
-        #return ''.join(sorted_nums)
-        str_nums = [str(_) for _ in nums]
 
         def higher_rank(num1, num2):
             """ returns True if num1 is higher ranked than num2"""
@@ -39,6 +36,11 @@ class Solution:
                 return r
         
         sorted_nums = []
-        for str_num in str_nums:
+        for num in nums:
+            str_num = str(num)
             sorted_nums.insert(binary_search_insert(str_num, sorted_nums), str_num)
+            
+        if len(sorted_nums) > 0 and sorted_nums[0] == "0":
+            return "0"
+            
         return ''.join(sorted_nums)
