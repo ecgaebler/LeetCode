@@ -23,6 +23,8 @@ def maxAreaOfIsland(grid):
                 neighbors = find_neighbors(x, y, grid)
                 if neighbors:
                     print("cell", (x,y), "has neighbors", neighbors) #DEBUG
+                    for neighbor in neighbors:                                    #DEBUG
+                        print("neighbor", neighbor, "has id", cell_ids[neighbor]) #DEBUG
                     #count unique neighbor ids
                     neighbor_ids = set()
                     for cell in neighbors:
