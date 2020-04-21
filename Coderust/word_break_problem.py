@@ -18,10 +18,10 @@ def can_segment_string(s, dictionary):
       return True
     for word in d:
       if can_use(s, index, word): #s starts with word
-        print("can use string:",word) #DEBUG
+        #print("can use string:",word) #DEBUG
         if can_segment(s, index + len(word), dictionary, memo): #can segment string after subtracting word
           memo[index] = True
-          print("can segment", s[index+len(word):]) #DEBUG
+          #print("can segment", s[index+len(word):]) #DEBUG
           return True
         else:
           memo[index + len(word)] = False
