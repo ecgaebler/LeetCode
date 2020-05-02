@@ -1,20 +1,15 @@
 class Solution:
     def containsNearbyDuplicate(self, nums: List[int], k: int) -> bool:
-        duplicated_nums = set()
-        duplicates = {}
+        active = set() #numbers within sliding window
+        left = 0 #index of left side of sliding window
         
-        #record duplicates and their indices
-        for i, num in enumerate(nums):
-            if num not in duplicates:
-                duplicates[num] = []
-            else:
-                duplicated_nums.add(num)
-            duplicates[num].append(i)
-        
-        for num in duplicates:
-            #check pairs of indices for duplicated values. indices list should already be sorted.
-            for i in range(len(duplicates[num]) - 1):
-                if duplicates[num][i+1] - duplicates[num][i] <= k:
-                    return True
-        
+        for right in range(len(nums)):
+            #advance start of window to maintain max window size
+            if right - left > k:
+                active.discard(nums[left]) 
+                left += 1
+            #check for matches within active window
+            if nums[right] in active:
+                return True
+            active.add(nums[right])
         return False
