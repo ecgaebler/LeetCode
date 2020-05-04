@@ -18,6 +18,7 @@ class Solution:
                         chars[write_idx] = char        
                         write_idx += 1
                 else:
+                    chars[write_idx] = current_char
                     write_idx += 1
                 char_count = 1
                 current_char = chars[scan_idx]
