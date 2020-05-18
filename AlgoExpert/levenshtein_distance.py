@@ -1,19 +1,3 @@
-'''
-  "" a b c -str1(i)
-"" 0 1 2 3
- y 1 1 2 3
- a 2 1 2 3
- b 3 2 1 2
- d 4 3 2 2
-str2(j)
-
-  "" a b b -str1(i)
-"" 0 1 2 3
- b 1 1 1 2
- b 2 1 1 1
- a 3 2 2 2
-str2(j)
-'''
 
 def levenshteinDistance(str1, str2):
     if len(str1) == 0:
@@ -43,10 +27,24 @@ def levenshteinDistance(str1, str2):
                 sub_cost = dp[j - 1][i - 1] + 1
                 dp[j][i] = min(add_cost, del_cost, sub_cost)
 
-    for row in dp:#DEBUG
-        print(row)#DEBUG
     return dp[-1][-1]
-        
+
+'''
+  "" a b c -str1(i)
+"" 0 1 2 3
+ y 1 1 2 3
+ a 2 1 2 3
+ b 3 2 1 2
+ d 4 3 2 2
+str2(j)
+
+  "" a b b -str1(i)
+"" 0 1 2 3
+ b 1 1 1 2
+ b 2 1 1 1
+ a 3 2 2 2
+str2(j)
+'''
 test0 = ("abc", "yabd")
 test1 = ("abb", "bba")
 tests = [test0, test1]
