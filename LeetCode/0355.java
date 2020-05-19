@@ -46,8 +46,8 @@ class Twitter {
             follow(followeeId, followeeId); // Make followee follow self
         }
         if(!followedBy.containsKey(followerId)) { // Follower doesn'f follow anyone, including self
-            followedBy.put(followerId, new HashSet<Integer>()); // Make new hashset of users following follower (so they can follow self)
-            followersOf.put(followerId, new HashSet<Integer>());
+            followedBy.put(followerId, new HashSet<Integer>()); // Make new hashset of users follower is following
+            followersOf.put(followerId, new HashSet<Integer>()); //
             follow(followerId, followerId);
         }
         followedBy.get(followerId).add(followeeId);
