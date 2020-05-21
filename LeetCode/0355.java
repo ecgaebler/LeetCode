@@ -3,7 +3,7 @@ class Twitter {
     Deque<Pair<Integer, Integer>> tweets;
     HashMap<Integer, Integer> tweetOwner;
     HashMap<Integer, HashSet<Integer>> followedBy; //maps user ID to set of users they follow
-    HashMap<Integer, HashSet<Integer>> followersOf; //maps user ID to set of users following them
+    HashMap<Integer, HashSet<Integer>> followersOf; //maps user ID to set of users following them (really don't need this right now)
     
 
     /** Initialize your data structure here. */
@@ -47,7 +47,7 @@ class Twitter {
         }
         if(!followedBy.containsKey(followerId)) { // Follower doesn'f follow anyone, including self
             followedBy.put(followerId, new HashSet<Integer>()); // Make new hashset of users follower is following
-            followersOf.put(followerId, new HashSet<Integer>()); //
+            followersOf.put(followerId, new HashSet<Integer>()); // 
             follow(followerId, followerId);
         }
         followedBy.get(followerId).add(followeeId);
