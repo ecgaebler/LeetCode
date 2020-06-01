@@ -1,2 +1,2 @@
-# LeetCode
-My solutions for LeetCode problems. File names are just the problem numbers for the corresponding LeetCode problems.
+# Practice
+My code for practice problems such as LeetCode or AlgoExpert questions.
