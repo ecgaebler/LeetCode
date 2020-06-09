@@ -15,9 +15,11 @@ def removeKthNodeFromEnd(head, k):
     target_idx = length - k #index of node to remove
     
     if target_idx == 0:
-        new_head = head.next
-        head.next = None
-        return new_head
+        second_node = head.next
+        head.value = second_node.value
+        head.next = second_node.next
+        second_node.next = None
+        return head
     #progress through list until you get to node with index == target_idx
     parent = None
     node = head
@@ -31,6 +33,8 @@ def removeKthNodeFromEnd(head, k):
     parent.next = node.next #make parent point past target node
     node.next = None
     return head
+
+#TEST CODE BELOW:
 '''
 node0 = LinkedList(0)
 node1 = LinkedList(1)
