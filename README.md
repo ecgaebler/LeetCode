@@ -1,2 +1,2 @@
 # Practice
-My code for practice problems such as LeetCode or AlgoExpert questions.
+My code for various coding practice such as LeetCode or AlgoExpert questions.
