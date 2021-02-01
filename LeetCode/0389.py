@@ -1,18 +1,19 @@
 def findTheDifference(s, t):
-    s_letters = {}
+    s_sum = 0
     for char in s:
-        if char not in s_letters:
-            s_letters[char] = 0
-        s_letters[char] += 1
+        s_sum += ord(char)
     
-    t_letters = {}
+    t_sum = 0
     for char in t:
-        if char not in s_letters:
-            return char
-        if char not in t_letters:
-            t_letters[char] = 0
-        t_letters[char] += 1
-        if t_letters[char] > s_letters[char]:
-            return char
+        t_sum += ord(char)
     
-    return 0
+    return chr(t_sum - s_sum)
+
+#TEST CODE
+tests = [("abcd","abcde"),
+         ("","y"),
+         ("a","aa"),
+         ("ae","eaa")]
+for test in tests:
+    print('input strings: "' + test[0] + '" & "' + test[1] + '"')
+    print(" added char: '" + findTheDifference(test[0], test[1]) + "'")
