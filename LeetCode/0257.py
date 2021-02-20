@@ -8,19 +8,17 @@ class TreeNode:
 def binaryTreePaths(root):
     if not root:
         return []
-    if not root.right and not root.left:
-        return [str(root.val)]
     
-    def findPaths(node, pathSoFar, result):
-        currentPath = pathSoFar + "->" + str(node.val)
+    def findPaths(node):
         if not node.right and not node.left: #leaf node
-            result.append(currentPath)
-            return
+            return [str(node.val)]
+        result = []
         if node.right:
-            findPaths(node.right, currentPath, result)
+            for path in findPaths(node.right):
+                result.append(str(node.val) + "->" + path)
         if node.left:
-            findPaths(node.left, currentPath, result)
+            for path in findPaths(node.left):
+                result.append(str(node.val) + "->" + path)
+        return result
     
-    result = []
-    findPaths(root, "", result) 
-    return result
+    return findPaths(root)
